@@ -1,8 +1,10 @@
+from os import PathLike
 import matplotlib.pyplot as plt
 import numpy as np
+import numpy.typing as npt
 
 
-def add_intercept(x):
+def add_intercept(x: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:
     """Add intercept to matrix x.
 
     Args:
@@ -18,7 +20,7 @@ def add_intercept(x):
     return new_x
 
 
-def load_dataset(csv_path, label_col='y', add_intercept=False):
+def load_dataset(csv_path: str | PathLike[str], label_col='y', add_intercept=False):
     """Load dataset from a CSV file.
 
     Args:
@@ -31,7 +33,7 @@ def load_dataset(csv_path, label_col='y', add_intercept=False):
         ys: Numpy array of y-values (labels).
     """
 
-    def add_intercept_fn(x):
+    def add_intercept_fn(x: npt.NDArray[np.float64]):
         global add_intercept
         return add_intercept(x)
 
