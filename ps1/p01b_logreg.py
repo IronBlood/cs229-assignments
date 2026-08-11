@@ -4,8 +4,7 @@ import numpy.typing as npt
 from . import util
 
 from .linear_model import LinearModel
-
-Float64Matrix = np.ndarray[tuple[int, int], np.dtype[np.float64]]
+from .types import Float64Matrix
 
 def main(train_path: str | PathLike[str], eval_path: str | PathLike[str], pred_path: str | PathLike[str]):
     """Problem 1(b): Logistic regression with Newton's Method.
