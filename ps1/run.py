@@ -8,6 +8,8 @@ from .p03d_poisson import main as p03
 from .p05b_lwr import main as p05b
 from .p05c_tau import main as p05c
 
+from .p01fg_plot import main as p01fg
+
 parser = argparse.ArgumentParser()
 parser.add_argument('p_num', nargs='?', type=int, default=0,
                     help='Problem number to run, 0 for all problems.')
@@ -32,6 +34,14 @@ if args.p_num == 0 or args.p_num == 1:
     p01e(train_path=CURR_DIR / '../data/ds2_train.csv',
          eval_path=CURR_DIR / '../data/ds2_valid.csv',
          pred_path=CURR_DIR / '../output/p01e_pred_2.txt')
+
+if args.p_num == 7:
+    p01fg(train_path=CURR_DIR / '../data/ds1_train.csv',
+          title='Logistic Regression VS GDA Decision Boundaries (ds1_train)',
+          save_path=CURR_DIR / '../output/p01f.png')
+    p01fg(train_path=CURR_DIR / '../data/ds2_train.csv',
+          title='Logistic Regression VS GDA Decision Boundaries (ds2_train)',
+          save_path=CURR_DIR / '../output/p01g.png')
 
 # Problem 2
 if args.p_num == 0 or args.p_num == 2:
